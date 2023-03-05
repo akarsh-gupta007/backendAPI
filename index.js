@@ -16,7 +16,7 @@ app.use(express.json())
 
 const alienRouter = require('./router/userdetails')
 
-app.use("/", alienRouter)
+app.use("/api", alienRouter)
 app.listen(9000, () => {
     console.log("server started")
 })
