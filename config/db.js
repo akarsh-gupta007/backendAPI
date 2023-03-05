@@ -8,8 +8,6 @@
 
 const mongoose=require("mongoose")
 mongoose.set("strictQuery",true)
-const con=mongoose.connect("mongodb+srv://akarshgupta007:Ak161998@cluster0.yb4ucuj.mongodb.net/?retryWrites=true&w=majority",()=>{
-    console.log("db id connected")
-})
+const connection=mongoose.connect("mongodb+srv://akarshgupta007:Ak161998@cluster0.yb4ucuj.mongodb.net/?retryWrites=true&w=majority")
 
-module.exports=con;
+module.exports=connection;

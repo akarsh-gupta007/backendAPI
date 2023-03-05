@@ -6,17 +6,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const cors = require("cors")
-app.use(cors({
-    origin: "*"
-}))
-connection.on("open", () => {
-    console.log("conected")
-})
+app.use(cors())
+
 app.use(express.json())
 
 const alienRouter = require('./router/userdetails')
 
 app.use("/api", alienRouter)
-app.listen(9000, () => {
-    console.log("server started")
+
+
+app.listen(9000, async () => {
+    try {
+        await connection;
+        console.log("server started")
+    }
+    catch (err) {
+        console.log(err)
+    }
 })
