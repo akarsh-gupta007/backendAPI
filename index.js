@@ -12,7 +12,7 @@ app.use(express.json())
 
 const alienRouter = require('./router/userdetails')
 
-app.use("/api", alienRouter)
+app.use("/", alienRouter)
 
 
 app.listen(9000, async () => {
