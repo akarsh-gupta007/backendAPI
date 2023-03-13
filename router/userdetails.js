@@ -17,17 +17,12 @@ router.post('/api', async (req, res) => {
     console.log(name, tech, email, ranking)
     const exituser = await projectmodel.findOne({ email:email }).exec();    
     try {
-        if (exituser) {
-            res.send({msg:"the user exits"})
-            console.log("user exits")
-        }
-        else {
+        
             const a1 = await newdata.save()
             res.json(a1)
             res.send({msg:"data is added successfully"})
             console.log("data is added")
         }
-    }
     catch (err) {
         console.log(err)
     }
@@ -44,10 +39,12 @@ router.patch('/update/:id', async (req, res) => {
     }
 })
 router.delete('/delete/:id', async (req, res) => {
+    
     try {
-        const deletedata = await projectmodel.findByIdAndRemove(req.params.id);
-        const a1 = await deletedata.save({});
-        res.json(a1)
+        console.log(req.params.id)
+        const deletedata = await projectmodel.deleteOne({_id:req.params.id});
+        // const a1 = await deletedata.save({});
+        res.json({msg:"Data has been deleted"})
         console.log("deleted")
     }
     catch (err) {

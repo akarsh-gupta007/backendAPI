@@ -1,10 +1,4 @@
-// const mongoose = require("mongoose")
 
-// mongoose.connect("", {
-//     useNewUrlParser: true
-// })
-// const con = mongoose.connection;
-// module.exports=con;
 
 const mongoose=require("mongoose")
 mongoose.set("strictQuery",true)
